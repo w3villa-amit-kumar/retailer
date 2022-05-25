@@ -1,10 +1,9 @@
 const { Router } = require("express");
+const { transaction, list } = require("../controllers/rewardControllers");
 const {
-  transaction,
-  list,
   monthlyReward,
-} = require("../controllers/rewardControllers");
-
+  allcustomers,
+} = require("../controllers/customerControllers");
 // Init routes
 const routes = Router();
 
@@ -16,5 +15,7 @@ routes.post("/reward/:userId", transaction);
 routes.get("/list/:userId", list);
 // Monthly reward & Total reward.
 routes.get("/monthly/:userId", monthlyReward);
+//
+routes.get("/customer", allcustomers);
 
 module.exports = routes;

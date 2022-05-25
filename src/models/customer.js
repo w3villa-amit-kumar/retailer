@@ -11,6 +11,7 @@ const customer = Schema(
         date: { type: String, require: true },
       },
     ],
+    role: { type: String, default: "customer" },
     totalReward: { type: Number, require: true },
   },
   {

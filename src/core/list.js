@@ -1,6 +1,6 @@
 const moment = require("moment");
 
-const list = function (list) {
+const List = function (list) {
   let n = list.transaction.length;
 
   //Base condition.
@@ -32,4 +32,11 @@ const list = function (list) {
   return temp;
 };
 
-module.exports = list;
+function responses(success, data) {
+  return {
+    success: success,
+    data: data, // object or any
+  };
+}
+
+module.exports = { List, responses };

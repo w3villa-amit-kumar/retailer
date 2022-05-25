@@ -1,15 +1,8 @@
 const rewardCore = require("../core/reward");
-const List = require("../core/list");
+const { List, responses } = require("../core/list");
 const Customer = require("../models/customer");
 const moment = require("moment");
 const { transaction } = require("../helper/validation");
-
-function responses(success, data) {
-  return {
-    success: success,
-    data: data, // object or any
-  };
-}
 
 module.exports = {
   //Transaction. calculate rewards & save the Transaction details
@@ -103,45 +96,5 @@ module.exports = {
     } catch (error) {
       console.error(error);
     }
-  },
-
-  // monthly reward & Total reward.
-  monthlyReward: async (req, res) => {
-    const { userId } = req.params;
-
-    console.log(userId);
-
-    const [list] = await Customer.find({ _id: userId });
-    //Validate the user
-    console.log(list);
-    if (!list) {
-      let resp = responses(false, { msg: "No data found" });
-      return res.send(resp);
-    }
-    //Create a HashMap
-    let monthCount = new Map();
-
-    for (let i = 0; i < list.transaction.length; i++) {
-      let data = list.transaction[i];
-
-      let resu = moment(data.date).format("MMMM");
-
-      let monthlyReward = monthCount.get(resu);
-      if (monthlyReward) {
-        monthCount.set(resu, data.reward + monthlyReward);
-      } else {
-        monthCount.set(resu, data.reward);
-      }
-    }
-
-    let obj = Object.fromEntries(monthCount);
-    let data = {
-      "Total Reward": list.totalReward,
-      "Monthly Reward": obj,
-    };
-
-    let resp = responses(true, data);
-    // Response
-    res.send(resp);
   },
 };

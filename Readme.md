@@ -55,8 +55,11 @@ npm run test
 
 ## Data set
 
-![](src/config/images/Screenshot%20from%202022-05-23%2013-13-36.png)
+![](src/config/images/Screenshot%20from%202022-05-25%2017-28-46.png)
+![](src/config/images/Screenshot%20from%202022-05-25%2017-29-56.png)
 
 ## Results
 
-![](src/config/images/Screenshot%20from%202022-05-23%2013-15-09.png) ![](src/config/images/Screenshot%20from%202022-05-23%2013-16-19.png)
+![](src/config/images/Screenshot%20from%202022-05-25%2017-31-14.png)
+![](src/config/images/Screenshot%20from%202022-05-25%2017-31-50.png)
+![](src/config/images/Screenshot%20from%202022-05-25%2017-32-23.png)![](src/config/images/Screenshot%20from%202022-05-25%2017-32-51.png)
